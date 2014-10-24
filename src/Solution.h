@@ -18,7 +18,7 @@ public:
 	int rank;
 	float distance;
 	vector<float> objectives;
-	vector<int> attributes;
+	vector<float> attributes;
 
 	Solution(int numberOfObjectives);
 	virtual ~Solution();

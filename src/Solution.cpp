@@ -33,7 +33,7 @@ void Solution::mutate() {
 bool Solution::shift(Solution other) {
 	bool dominates = false;
 
-	for (unsigned int i = 0; i < this->objectives.size(); i++) {
+	for (int i = 0; i < this->numberOfObjectives; i++) {
 		if (this->objectives.at(i) > other.objectives.at(i)) {
 			return false;
 		} else if (this->objectives.at(i) < other.objectives.at(i)) {

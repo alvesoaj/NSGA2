@@ -6,8 +6,8 @@
  */
 
 #include <math.h>
-#import "../Solution.h"
-#import "../NSGA2.h"
+#include "../Solution.h"
+#include "../NSGA2.h"
 
 #ifndef T1SOLUTION_H_
 #define T1SOLUTION_H_
@@ -20,7 +20,7 @@ public:
 	T1Solution();
 	virtual ~T1Solution();
 	void evaluateSolution();
-	Solution crossover(Solution other);
+	T1Solution crossover(T1Solution other);
 	void mutate();
 };
 
