@@ -33,6 +33,6 @@ bool Solution::rightShift(Solution other) {
 	return dominates;
 }
 
-Solution Solution::leftShift(Solution other) {
-	return other >> this;
+bool Solution::leftShift(Solution other) {
+	return this->rightShift(other);
 }

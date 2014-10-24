@@ -5,6 +5,7 @@
  *      Author: zerokol.com
  */
 
+#include <stdlib.h>
 #include <iostream>
 #include <vector>
 #include "Solution.h"

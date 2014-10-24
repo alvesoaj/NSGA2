@@ -5,17 +5,18 @@
  *      Author: zerokol.com
  */
 
-#ifndef SOLUTION_H_
-#define SOLUTION_H_
-
 #include <vector>
 using namespace std;
+
+#ifndef SOLUTION_H_
+#define SOLUTION_H_
 
 class Solution {
 public:
 	int numberOfObjectives;
-	vector<float> objectives;
 	int rank;
+	vector<float> objectives;
+	float distance;
 
 	Solution(int numberOfObjectives);
 	virtual ~Solution();
@@ -23,11 +24,10 @@ public:
 	virtual void crossover(Solution other);
 	virtual void mutate();
 	bool rightShift(Solution other);
-	Solution leftShift(Solution other);
+	bool leftShift(Solution other);
 
 private:
 	vector<int> attributes;
-	float distance;
 };
 
 #endif /* SOLUTION_H_ */
