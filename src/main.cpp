@@ -8,14 +8,37 @@
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
+#include "NSGA2.h"
 #include "Solution.h"
+#include "problems/T1Solution.h"
 using namespace std;
 
-vector<Solution> P;
+double calculate_time(clock_t start, clock_t end);
 
 int main() {
+	clock_t time_start = clock();
 	srand(time(NULL));
 
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	NSGA2 nsga2 = NSGA2(2, 0.1, 1.0);
+	vector<Solution> P;
+
+	for (int i = 0; i < 500; i++) {
+		T1Solution s = T1Solution();
+		P.push_back(s);
+	}
+
+	nsga2.run(P, 50, 20);
+
+	for (int i = 0; i < P.size(); i++) {
+		cout << P.at(i).objectives.at(0) << ", " << P.at(i).objectives.at(1)
+				<< endl;
+	}
+
+	cout << "Exec time (NSGA2): " << calculate_time(time_start, clock())
+			<< " ms" << endl;
 	return 0;
+}
+
+double calculate_time(clock_t start, clock_t end) {
+	return 1000.0 * ((double) (end - start) / (double) CLOCKS_PER_SEC);
 }

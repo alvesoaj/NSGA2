@@ -16,8 +16,9 @@ class Solution {
 public:
 	int numberOfObjectives;
 	int rank;
-	vector<float> objectives;
 	float distance;
+	vector<float> objectives;
+	vector<int> attributes;
 
 	Solution(int numberOfObjectives);
 	virtual ~Solution();
@@ -26,9 +27,6 @@ public:
 	virtual void mutate();
 	bool rightShift(Solution other);
 	bool leftShift(Solution other);
-
-private:
-	vector<int> attributes;
 };
 
 #endif /* SOLUTION_H_ */

@@ -28,7 +28,7 @@ void NSGA2::run(vector<Solution> P, unsigned int populationSize,
 	vector<Solution> Q;
 
 	for (int i = 0; i < numberOfGenerations; i++) {
-		cout << "Iteraction: " + (i + 1) << endl;
+		cout << "Iteraction: " << (i + 1) << endl;
 
 		vector<Solution> R;
 		R.reserve(P.size() + Q.size());
@@ -202,13 +202,11 @@ vector<Solution> NSGA2::makeNewPopulation(vector<Solution> P) {
 			}
 		}
 
-		float r = ((double) rand() / (RAND_MAX)) + 1;
-		if (r < this->crossoverRate) {
+		if (this->getRandValue() < this->crossoverRate) {
 			Solution childSolution = selectedSolutions.at(0).crossover(
 					selectedSolutions.at(1));
 
-			r = ((double) rand() / (RAND_MAX)) + 1;
-			if (r < this->mutationRate) {
+			if (this->getRandValue() < this->mutationRate) {
 				childSolution.mutate();
 			}
 
@@ -221,3 +219,6 @@ vector<Solution> NSGA2::makeNewPopulation(vector<Solution> P) {
 	return Q;
 }
 
+double NSGA2::getRandValue() {
+	return ((double) rand() / (RAND_MAX)) + 1;
+}

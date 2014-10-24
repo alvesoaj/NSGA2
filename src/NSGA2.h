@@ -23,6 +23,7 @@ public:
 	virtual ~NSGA2();
 	void run(vector<Solution> P, unsigned int populationSize,
 			int numberOfGenerations);
+	static double getRandValue();
 
 private:
 	int numberOfObjectives;
