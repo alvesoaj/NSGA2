@@ -30,19 +30,15 @@ Solution Solution::crossover(Solution other) {
 void Solution::mutate() {
 }
 
-bool Solution::rightShift(Solution other) {
+bool Solution::shift(Solution other) {
 	bool dominates = false;
 
 	for (unsigned int i = 0; i < this->objectives.size(); i++) {
-		if (this->objectives[i] > other.objectives[i]) {
+		if (this->objectives.at(i) > other.objectives.at(i)) {
 			return false;
-		} else if (this->objectives[i] < other.objectives[i]) {
+		} else if (this->objectives.at(i) < other.objectives.at(i)) {
 			dominates = true;
 		}
 	}
 	return dominates;
-}
-
-bool Solution::leftShift(Solution other) {
-	return this->rightShift(other);
 }

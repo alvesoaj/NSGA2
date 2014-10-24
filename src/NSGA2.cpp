@@ -53,7 +53,6 @@ void NSGA2::run(vector<Solution> P, unsigned int populationSize,
 				break;
 			}
 		}
-
 		this->sortCrowding(P);
 
 		if (P.size() > populationSize) {
@@ -68,38 +67,39 @@ vector<vector<Solution> > NSGA2::fastNondominatedSort(vector<Solution> R) {
 	// Discover Pareto fronts in P, based on non-domination criterion.
 
 	vector<vector<Solution> > fronts;
-
 	vector<vector<Solution> > S;
 	vector<int> n;
 
 	for (unsigned int i = 0; i < R.size(); i++) {
-		fronts.reserve(1);
-		S.at(i).reserve(1);
+		vector<Solution> vs;
+
+		fronts.push_back(vs);
+		S.push_back(vs);
 		n.push_back(0);
 	}
-
+	cout << R.size() << endl;
 	for (unsigned int i = 0; i < R.size(); i++) {
 		for (unsigned int j = 0; j < R.size(); j++) {
 			if (i == j) {
 				continue;
 			} else {
-				if (R.at(i).rightShift(R.at(j))) {
+				cout << j << endl;
+				if (R.at(i).shift(R.at(j))) {
 					S.at(i).push_back(R.at(j));
-				} else if (R.at(i).leftShift(R.at(j))) {
+				} else if (R.at(j).shift(R.at(i))) {
 					n.at(i) += 1;
 				}
 			}
+		}
 
-			if (n.at(i) == 0) {
-				fronts.at(0).push_back(R.at(i));
-			}
+		if (n.at(i) == 0) {
+			fronts.at(0).push_back(R.at(i));
 		}
 	}
-
+	cout << R.size() << endl;
 	int w = 0;
 	while (fronts.at(w).size() != 0) {
 		vector<Solution> nextFront;
-
 		for (unsigned int i = 0; i < fronts.at(w).size(); i++) {
 			for (unsigned int j = 0; j < S.at(i).size(); j++) {
 				n.at(j) -= 1;
@@ -112,7 +112,7 @@ vector<vector<Solution> > NSGA2::fastNondominatedSort(vector<Solution> R) {
 		w += 1;
 		fronts.at(w) = nextFront;
 	}
-
+	cout << R.size() << endl;
 	return fronts;
 }
 
@@ -129,7 +129,7 @@ void NSGA2::crowdingDistanceAssignment(vector<Solution> front) {
 		front.at(0).distance = numeric_limits<float>::infinity();
 		front.at(front.size() - 1) = numeric_limits<float>::infinity();
 
-		for (unsigned int j = 0; j < front.size(); j++) {
+		for (unsigned int j = 1; j < (front.size() - 1); j++) {
 			front.at(j).distance += (front.at(j + 1).distance
 					- front.at(j - 1).distance);
 		}
@@ -138,9 +138,9 @@ void NSGA2::crowdingDistanceAssignment(vector<Solution> front) {
 
 void NSGA2::sortObjective(vector<Solution> front, int objective_index) {
 	for (int i = (front.size() - 1); i >= 0; i--) {
-		for (unsigned int j = 1; j < front.size(); j++) {
-			if (front.at(j - 1).objectives[objective_index]
-					> front.at(j).objectives[objective_index]) {
+		for (unsigned int j = 1; j < i; j++) {
+			if (front.at(j - 1).objectives.at(objective_index)
+					> front.at(j).objectives.at(objective_index)) {
 				Solution temp = front.at(j - 1);
 				front.at(j - 1) = front.at(j);
 				front.at(j) = temp;
@@ -151,7 +151,7 @@ void NSGA2::sortObjective(vector<Solution> front, int objective_index) {
 
 void NSGA2::sortCrowding(vector<Solution> P) {
 	for (int i = (P.size() - 1); i >= 0; i--) {
-		for (unsigned int j = 1; j < P.size(); j++) {
+		for (unsigned int j = 1; j < i; j++) {
 			if (this->crowdedComparison(P.at(j - 1), P.at(j)) < 0) {
 				Solution temp = P.at(j - 1);
 				P.at(j - 1) = P.at(j);
@@ -181,7 +181,9 @@ vector<Solution> NSGA2::makeNewPopulation(vector<Solution> P) {
 
 	while (Q.size() != P.size()) {
 		vector<Solution> selectedSolutions;
-		selectedSolutions.reserve(2);
+		selectedSolutions.push_back(P.front());
+		selectedSolutions.push_back(P.back());
+
 		int s1Index = -1;
 		int s2Index = -1;
 
@@ -220,5 +222,5 @@ vector<Solution> NSGA2::makeNewPopulation(vector<Solution> P) {
 }
 
 double NSGA2::getRandValue() {
-	return ((double) rand() / (RAND_MAX)) + 1;
+	return (double) rand() / RAND_MAX;
 }

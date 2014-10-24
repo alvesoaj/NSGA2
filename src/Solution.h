@@ -25,8 +25,7 @@ public:
 	virtual void evaluateSolution();
 	virtual Solution crossover(Solution other);
 	virtual void mutate();
-	bool rightShift(Solution other);
-	bool leftShift(Solution other);
+	bool shift(Solution other);
 };
 
 #endif /* SOLUTION_H_ */
