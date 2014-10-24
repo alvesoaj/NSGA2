@@ -6,7 +6,7 @@
  */
 
 #include <vector>
-#include <limits>
+#include <limits> // INT_MAX
 using namespace std;
 
 #ifndef SOLUTION_H_
@@ -22,7 +22,7 @@ public:
 	Solution(int numberOfObjectives);
 	virtual ~Solution();
 	virtual void evaluateSolution();
-	virtual void crossover(Solution other);
+	virtual Solution crossover(Solution other);
 	virtual void mutate();
 	bool rightShift(Solution other);
 	bool leftShift(Solution other);

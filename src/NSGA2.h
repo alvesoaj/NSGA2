@@ -10,7 +10,8 @@
 
 #include <iostream>
 #include <vector>
-#include <limits>
+#include <limits> // FLT_MAX
+#include <cstdlib> // RAND_MAX
 #include "Solution.h"
 using namespace std;
 

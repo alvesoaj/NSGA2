@@ -20,10 +20,20 @@ Solution::~Solution() {
 	// TODO Auto-generated destructor stub
 }
 
+void Solution::evaluateSolution() {
+}
+
+Solution Solution::crossover(Solution other) {
+	return 0;
+}
+
+void Solution::mutate() {
+}
+
 bool Solution::rightShift(Solution other) {
 	bool dominates = false;
 
-	for (int i = 0; i < this->objectives.size(); i++) {
+	for (unsigned int i = 0; i < this->objectives.size(); i++) {
 		if (this->objectives[i] > other.objectives[i]) {
 			return false;
 		} else if (this->objectives[i] < other.objectives[i]) {

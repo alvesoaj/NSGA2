@@ -182,12 +182,40 @@ vector<Solution> NSGA2::makeNewPopulation(vector<Solution> P) {
 	while (Q.size() != P.size()) {
 		vector<Solution> selectedSolutions;
 		selectedSolutions.reserve(2);
+		int s1Index = -1;
+		int s2Index = -1;
 
-		do {
+		while (s1Index == s2Index) {
 			for (int i = 0; i < 2; i++) {
+				s1Index = rand() % P.size();
+				s2Index = s1Index;
 
+				while (s1Index == s2Index) {
+					s2Index = rand() % P.size();
+				}
+
+				if (this->crowdedComparison(P.at(s1Index), P.at(s2Index)) > 0) {
+					selectedSolutions.at(i) = P.at(s1Index);
+				} else {
+					selectedSolutions.at(i) = P.at(s2Index);
+				}
 			}
-		} while ();
+		}
+
+		float r = ((double) rand() / (RAND_MAX)) + 1;
+		if (r < this->crossoverRate) {
+			Solution childSolution = selectedSolutions.at(0).crossover(
+					selectedSolutions.at(1));
+
+			r = ((double) rand() / (RAND_MAX)) + 1;
+			if (r < this->mutationRate) {
+				childSolution.mutate();
+			}
+
+			childSolution.evaluateSolution();
+
+			Q.push_back(childSolution);
+		}
 	}
 
 	return Q;
