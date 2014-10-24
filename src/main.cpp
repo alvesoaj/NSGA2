@@ -13,6 +13,8 @@ using namespace std;
 vector<Solution> P;
 
 int main() {
+	srand(time(NULL));
+
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;
 }
