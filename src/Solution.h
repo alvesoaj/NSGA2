@@ -6,6 +6,7 @@
  */
 
 #include <vector>
+#include <limits>
 using namespace std;
 
 #ifndef SOLUTION_H_

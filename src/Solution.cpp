@@ -12,7 +12,7 @@ Solution::Solution(int numberOfObjectives) {
 	for (int i = 0; i < this->numberOfObjectives; i++) {
 		this->objectives.push_back(0.0);
 	}
-	this->rank = INT_MAX;
+	this->rank = numeric_limits<int>::max();
 	this->distance = 0.0;
 }
 

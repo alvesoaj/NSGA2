@@ -103,28 +103,29 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="NSGAII.cdt.managedbuild.target.macosx.exe.960015304" name="Executable" projectType="cdt.managedbuild.target.macosx.exe"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/NSGA2"/>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.macosx.exe.release.1407177056;cdt.managedbuild.config.macosx.exe.release.1407177056.;cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.release.1206554162;cdt.managedbuild.tool.gnu.c.compiler.input.588540797">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409;cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409.;cdt.managedbuild.tool.gnu.cpp.compiler.base.1519827804;cdt.managedbuild.tool.gnu.cpp.compiler.input.143548339">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409;cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409.;cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.2014982441;cdt.managedbuild.tool.gnu.cpp.compiler.input.1257873466">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.macosx.exe.release.1407177056;cdt.managedbuild.config.macosx.exe.release.1407177056.;cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.release.1206554162;cdt.managedbuild.tool.gnu.c.compiler.input.588540797">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.macosx.exe.release.1407177056;cdt.managedbuild.config.macosx.exe.release.1407177056.;cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.release.1278167304;cdt.managedbuild.tool.gnu.cpp.compiler.input.1846418903">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409;cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409.;cdt.managedbuild.tool.gnu.c.compiler.base.600256238;cdt.managedbuild.tool.gnu.c.compiler.input.582262093">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409;cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409.;cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.1993625794;cdt.managedbuild.tool.gnu.c.compiler.input.1467345249">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Release">
-			<resource resourceType="PROJECT" workspacePath="/NSGA2"/>
-		</configuration>
-		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/NSGA2"/>
-		</configuration>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409;cdt.managedbuild.config.gnu.macosx.exe.debug.1684838409.;cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.debug.2014982441;cdt.managedbuild.tool.gnu.cpp.compiler.input.1257873466">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>
