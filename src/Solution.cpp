@@ -21,13 +21,16 @@ Solution::~Solution() {
 }
 
 void Solution::evaluateSolution() {
+	throw invalid_argument("Solution class have to be implemented.");
 }
 
 Solution Solution::crossover(Solution other) {
+	throw invalid_argument("Solution class have to be implemented.");
 	return 0;
 }
 
 void Solution::mutate() {
+	throw invalid_argument("Solution class have to be implemented.");
 }
 
 bool Solution::shift(Solution other) {

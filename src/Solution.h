@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <limits> // INT_MAX
+#include <stdexcept> // exceptions
 using namespace std;
 
 #ifndef SOLUTION_H_
