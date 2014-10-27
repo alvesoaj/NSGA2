@@ -40,7 +40,7 @@ void NSGA2::run(vector<T1Solution *> *P, unsigned int populationSize,
 				break;
 			}
 
-			this->crowdingDistanceAssignment(fronts.at(j));
+			this->crowdingDistanceAssignment(&fronts.at(j));
 
 			P->reserve(fronts.at(j).size());
 			P->insert(P->end(), fronts.at(j).begin(), fronts.at(j).end());
@@ -93,18 +93,18 @@ vector<vector<T1Solution *> > NSGA2::fastNondominatedSort(
 
 	int w = 0;
 	while (fronts.at(w).size() != 0) {
-		vector<T1Solution *> *nextFront;
+		vector<T1Solution *> nextFront;
 		for (unsigned int i = 0; i < fronts.at(w).size(); i++) {
 			for (unsigned int j = 0; j < S.at(i).size(); j++) {
 				n.at(j) -= 1;
 				if (n.at(j) == 0) {
-					nextFront->push_back(S.at(i).at(j));
+					nextFront.push_back(S.at(i).at(j));
 				}
 			}
 		}
 
 		w += 1;
-		fronts.at(w) = *nextFront;
+		fronts.at(w) = nextFront;
 	}
 
 	return fronts;
@@ -175,9 +175,9 @@ vector<T1Solution *> NSGA2::makeNewPopulation(vector<T1Solution *> *P) {
 	vector<T1Solution *> Q;
 
 	while (Q.size() != P->size()) {
-		vector<T1Solution *> *selectedSolutions;
-		selectedSolutions->push_back(P->front());
-		selectedSolutions->push_back(P->back());
+		vector<T1Solution *> selectedSolutions;
+		selectedSolutions.push_back(P->front());
+		selectedSolutions.push_back(P->back());
 
 		int s1Index = -1;
 		int s2Index = -1;
@@ -193,16 +193,16 @@ vector<T1Solution *> NSGA2::makeNewPopulation(vector<T1Solution *> *P) {
 
 				if (this->crowdedComparison(P->at(s1Index), P->at(s2Index))
 						> 0) {
-					selectedSolutions->at(i) = P->at(s1Index);
+					selectedSolutions.at(i) = P->at(s1Index);
 				} else {
-					selectedSolutions->at(i) = P->at(s2Index);
+					selectedSolutions.at(i) = P->at(s2Index);
 				}
 			}
 		}
 
 		if (this->getRandValue() < this->crossoverRate) {
-			T1Solution *childSolution = selectedSolutions->at(0)->crossover(
-					selectedSolutions->at(1));
+			T1Solution *childSolution = selectedSolutions.at(0)->crossover(
+					selectedSolutions.at(1));
 
 			if (this->getRandValue() < this->mutationRate) {
 				childSolution->mutate();
