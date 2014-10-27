@@ -24,17 +24,17 @@ int main() {
 	srand(time(NULL));
 
 	NSGA2 nsga2 = NSGA2(2, 0.1, 1.0);
-	vector<T1Solution> P;
+	vector<T1Solution *> P;
 
 	for (int i = 0; i < 500; i++) {
-		T1Solution s = T1Solution();
+		T1Solution *s = new T1Solution();
 		P.push_back(s);
 	}
 
-	nsga2.run(P, 50, 20);
+	nsga2.run(&P, 50, 20);
 
 	for (unsigned int i = 0; i < P.size(); i++) {
-		cout << P.at(i).objectives.at(0) << ", " << P.at(i).objectives.at(1)
+		cout << P.at(i)->objectives.at(0) << ", " << P.at(i)->objectives.at(1)
 				<< endl;
 	}
 

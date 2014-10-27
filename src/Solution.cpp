@@ -24,7 +24,7 @@ void Solution::evaluateSolution() {
 	throw invalid_argument("Solution class have to be implemented.");
 }
 
-Solution Solution::crossover(Solution other) {
+Solution *Solution::crossover(Solution *other) {
 	throw invalid_argument("Solution class have to be implemented.");
 	return 0;
 }
@@ -33,13 +33,13 @@ void Solution::mutate() {
 	throw invalid_argument("Solution class have to be implemented.");
 }
 
-bool Solution::shift(Solution other) {
+bool Solution::shift(Solution *other) {
 	bool dominates = false;
 
 	for (int i = 0; i < this->numberOfObjectives; i++) {
-		if (this->objectives.at(i) > other.objectives.at(i)) {
+		if (this->objectives.at(i) > other->objectives.at(i)) {
 			return false;
-		} else if (this->objectives.at(i) < other.objectives.at(i)) {
+		} else if (this->objectives.at(i) < other->objectives.at(i)) {
 			dominates = true;
 		}
 	}

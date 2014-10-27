@@ -20,7 +20,7 @@ public:
 	T1Solution();
 	virtual ~T1Solution();
 	void evaluateSolution();
-	T1Solution crossover(T1Solution other);
+	T1Solution *crossover(T1Solution *other);
 	void mutate();
 };
 

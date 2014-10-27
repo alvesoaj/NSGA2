@@ -24,9 +24,9 @@ public:
 	Solution(int numberOfObjectives);
 	virtual ~Solution();
 	virtual void evaluateSolution();
-	virtual Solution crossover(Solution other);
+	virtual Solution *crossover(Solution *other);
 	virtual void mutate();
-	bool shift(Solution other);
+	bool shift(Solution *other);
 };
 
 #endif /* SOLUTION_H_ */

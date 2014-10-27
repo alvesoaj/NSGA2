@@ -38,12 +38,12 @@ void T1Solution::evaluateSolution() {
 	this->objectives.at(1) = g * (1.0 - sqrt(this->attributes.at(0) / g));
 }
 
-T1Solution T1Solution::crossover(T1Solution other) {
-	T1Solution childSolution = T1Solution();
+T1Solution *T1Solution::crossover(T1Solution *other) {
+	T1Solution *childSolution = new T1Solution();
 
 	for (int i = 0; i < 30; i++) {
-		childSolution.attributes.at(i) = sqrt(
-				this->attributes.at(i) * other.attributes.at(i));
+		childSolution->attributes.at(i) = sqrt(
+				this->attributes.at(i) * other->attributes.at(i));
 	}
 
 	return childSolution;
