@@ -8,9 +8,10 @@
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
+#include <time.h> // Tempo
+#include <fstream> // Manipular arquivos
 #include "NSGA2.h"
 #include "problems/T1Solution.h"
-#include <time.h>
 
 using namespace std;
 
@@ -33,10 +34,14 @@ int main() {
 
 	nsga2.run(&P, 50, 20);
 
+	ofstream myfile;
+
+	myfile.open("files/output.csv");
 	for (unsigned int i = 0; i < P.size(); i++) {
-		cout << P.at(i)->objectives.at(0) << ", " << P.at(i)->objectives.at(1)
-				<< endl;
+		myfile << P.at(i)->objectives.at(0) << ", " << P.at(i)->objectives.at(1)
+				<< "\n";
 	}
+	myfile.close();
 
 	cout << "Exec time (NSGA2): " << calculate_time(time_start, clock())
 			<< " ms" << endl;
